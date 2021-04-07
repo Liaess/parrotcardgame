@@ -1,6 +1,9 @@
-let cards = prompt("Com quantas cartas você quer jogar?")
+let cards;
 
-while (cards%2 !== 0){
-    cards = prompt("Com quantas cartas você quer jogar?");
-    //console.log(cards)
+function verify(){
+        cards = (prompt("Com quantas cartas deseja jogar?"));
+    while (cards < 4 || cards %2 !== 0 || cards > 14 || cards == null){
+        cards = (prompt("Com quantas cartas deseja jogar?"));
+    }
 }
+verify();
