@@ -11,6 +11,6 @@ function verify(){
 }
 
 for(let i=0; i < cards; i++){
-    const ecardlist = "<div class=\"ecard\"><img src=\"../Images/front.png\"></div>";
+    const ecardlist = "<div class=\"ecard\"></div>";
     amountofcards.innerHTML += ecardlist
 }

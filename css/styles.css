@@ -11,10 +11,10 @@ body{
     font-size: 56px;
 }
 .cards{
-    width: calc((100% - 400px)/2);
+    width: 50%;
     height: auto;
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap:wrap;
     margin: 120px auto;
 }
 .ecard{
@@ -26,6 +26,10 @@ body{
     margin-left: 35px;
     margin-top: 40px;
     border-radius: 5px;
+    background-image: url('/Images/front.png');
+    background-repeat: no-repeat;
+    background-size: 100px;
+    background-position: 50%;
 }
 .ecard img{
     width: 100px;
