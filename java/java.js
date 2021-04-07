@@ -1,9 +1,17 @@
 let cards;
+const ecardlist = "<li class=\"ecard\" onclick=\"turnCard()\"><img src=\"../Images/front.png\"></li>";
+const amountofcards = document.querySelector(".cards")
+verify()
+
 
 function verify(){
-        cards = (prompt("Com quantas cartas deseja jogar?"));
+        cards = prompt("Com quantas cartas deseja jogar?");
     while (cards < 4 || cards %2 !== 0 || cards > 14 || cards == null){
         cards = (prompt("Com quantas cartas deseja jogar?"));
     }
 }
-verify();
+
+for(let i=0;i<cards;i++){
+    const ecardlist = "<div class=\"ecard\"><img src=\"../Images/front.png\"></div>";
+    amountofcards.innerHTML += ecardlist
+}
