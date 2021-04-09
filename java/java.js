@@ -46,7 +46,6 @@ function flipcard(flip){
         firstcardclick = null;
     }
     count++
-    console.log(count)
 
     win()
 }
@@ -60,8 +59,15 @@ function deflip(firstcardtodeflip, secondcardtodeflip){
 function win(){
     if(correct === (cards/2)){
         setTimeout(winmessage, 300);
+        setTimeout(restart, 300)
     }
 }
 function winmessage(){
     alert(`Você ganhou em ${count} jogadas!`)
+}
+function restart(){
+    const askrestar = prompt("Gostaria de jogar novamente?")
+    if(askrestar === "Sim".toLowerCase()){
+        location.reload()
+    }
 }
