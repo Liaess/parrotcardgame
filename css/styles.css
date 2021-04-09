@@ -33,7 +33,6 @@ body{
 }
 .back-face,
 .front-face{
-    display: flex;
     width: 100%;
     height: 100%;
     padding: 20px;
@@ -43,6 +42,6 @@ body{
 .ecard.fliped{
     transform: rotateY(180deg);
 }
-.front-face{
+.back-face{
     transform: rotateY(-180deg);
 }
