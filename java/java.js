@@ -3,8 +3,8 @@ const amountofcards = document.querySelector(".cards");
 const list = ["bobrossparrot", "explodyparrot", "metalparrot", "fiestaparrot", "revertitparrot", "tripletsparrot", "unicornparrot"]
 let cardgroup = [];
 let firstcardclick = null;
-
-verify()
+let count = 0;
+let correct = 0;
 
 function verify(){
     while (cards < 4 || (cards %2) !== 0 || cards > 14 || cards == null){
@@ -28,27 +28,43 @@ function verify(){
 function randomize() { 
 	return Math.random() - 0.5; 
 }
+verify()
+
 function flipcard(flip){
     flip.classList.add('fliped');
-    compare(flip);
-}
-
-function compare(flip){
     if(firstcardclick === null){
-        firstcardclick = flip
+        firstcardclick = flip;
+        flip.setAttribute('onclick'," ");
+        firstcardclick.setAttribute('onclick'," ");
     } else if(firstcardclick.innerHTML === flip.innerHTML) {
         console.log("cartasiguais");
         flip.setAttribute('onclick'," ");
         firstcardclick.setAttribute('onclick'," ");
         firstcardclick = null;
+        count++;
+        correct++;
     } else {
         console.log("cartasdiferentes");
         setTimeout(deflip, 1000, firstcardclick, flip);
         firstcardclick = null;
-        
-    }
+        count++;
+    }  
+
+    win()
 }
 function deflip(x, y){
     x.classList.remove('fliped');
     y.classList.remove('fliped');
+    x.setAttribute('onclick',"flipcard(this)");
+    y.setAttribute('onclick',"flipcard(this)");
+    firstcardclick = null;
+}
+function win(){
+    if(correct === (cards/2)){
+        setTimeout(winmessage, 300);
+       
+    }
+}
+function winmessage(){
+    alert(`Você ganhou em ${count} jogadas!`)
 }
