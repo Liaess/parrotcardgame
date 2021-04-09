@@ -17,7 +17,7 @@ body{
     display: flex;
     justify-content: center;
     flex-wrap:wrap;
-    margin: 120px auto;
+    margin: 60px auto;
     perspective: 1000px;
 }
 .ecard{

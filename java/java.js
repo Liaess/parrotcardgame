@@ -3,8 +3,8 @@ const amountofcards = document.querySelector(".cards");
 const list = ["bobrossparrot", "explodyparrot", "metalparrot", "fiestaparrot", "revertitparrot", "tripletsparrot", "unicornparrot"]
 let cardgroup = [];
 let firstcardclick = null;
-let count = 0;
 let correct = 0;
+let count = 0;
 
 function verify(){
     while (cards < 4 || (cards %2) !== 0 || cards > 14 || cards == null){
@@ -37,32 +37,29 @@ function flipcard(flip){
         flip.setAttribute('onclick'," ");
         firstcardclick.setAttribute('onclick'," ");
     } else if(firstcardclick.innerHTML === flip.innerHTML) {
-        console.log("cartasiguais");
         flip.setAttribute('onclick'," ");
         firstcardclick.setAttribute('onclick'," ");
         firstcardclick = null;
-        count++;
         correct++;
     } else {
-        console.log("cartasdiferentes");
         setTimeout(deflip, 1000, firstcardclick, flip);
         firstcardclick = null;
-        count++;
-    }  
+    }
+    count++
+    console.log(count)
 
     win()
 }
-function deflip(x, y){
-    x.classList.remove('fliped');
-    y.classList.remove('fliped');
-    x.setAttribute('onclick',"flipcard(this)");
-    y.setAttribute('onclick',"flipcard(this)");
+function deflip(firstcardtodeflip, secondcardtodeflip){
+    firstcardtodeflip.classList.remove('fliped');
+    firstcardtodeflip.setAttribute('onclick',"flipcard(this)");
+    secondcardtodeflip.classList.remove('fliped');    
+    secondcardtodeflip.setAttribute('onclick',"flipcard(this)");
     firstcardclick = null;
 }
 function win(){
     if(correct === (cards/2)){
         setTimeout(winmessage, 300);
-       
     }
 }
 function winmessage(){
