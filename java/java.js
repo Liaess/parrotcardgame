@@ -5,6 +5,8 @@ let cardgroup = [];
 let firstcardclick = null;
 let correct = 0;
 let count = 0;
+let timerclock = 0;
+let timerinterval;
 
 function verify(){
     while (cards < 4 || (cards %2) !== 0 || cards > 14 || cards == null){
@@ -29,6 +31,7 @@ function randomize() {
 	return Math.random() - 0.5; 
 }
 verify()
+timer()
 
 function flipcard(flip){
     flip.classList.add('fliped');
@@ -67,7 +70,19 @@ function winmessage(){
 }
 function restart(){
     const askrestar = prompt("Gostaria de jogar novamente?")
-    if(askrestar === "Sim".toLowerCase()){
+    if(askrestar.toLowerCase() === "sim"){
         location.reload()
+    }
+}
+function timer(){
+    timerinterval = setInterval(actiontimer, 1000)
+}
+function actiontimer(){
+    timerclock++;
+    const timerelement = document.querySelector("p span");
+    timerelement.innerHTML = timerclock
+
+    if(correct === (cards/2)){
+        clearInterval(timerinterval)
     }
 }
