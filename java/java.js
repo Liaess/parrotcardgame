@@ -30,7 +30,7 @@ function randomize() {
 }
 function flipcard(flip){
     flip.classList.add('fliped');
-    compare(flip)
+    compare(flip);
 }
 
 function compare(flip){
@@ -39,15 +39,16 @@ function compare(flip){
     } else if(firstcardclick.innerHTML === flip.innerHTML) {
         console.log("cartasiguais");
         flip.setAttribute('onclick'," ");
-        firstcardclick.setAttribute('onclick'," ")
+        firstcardclick.setAttribute('onclick'," ");
         firstcardclick = null;
     } else {
         console.log("cartasdiferentes");
-        setTimeout(deflip, 1000, firstcardclick, flip)
+        setTimeout(deflip, 1000, firstcardclick, flip);
         firstcardclick = null;
+        
     }
 }
 function deflip(x, y){
     x.classList.remove('fliped');
-    y.classList.remove('fliped')
+    y.classList.remove('fliped');
 }

@@ -45,3 +45,11 @@ body{
 .back-face{
     transform: rotateY(-180deg);
 }
+
+@media (max-width:600px){
+    .cards{
+        width: 30%;
+        margin: 0 auto;
+        flex-direction: column;
+    }
+}
